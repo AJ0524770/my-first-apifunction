@@ -3,7 +3,7 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     //const name = (req.query.name || (req.body && req.body.name));
-    const name = await axios.get("https://randomuser.me/api/");
+    const name = await axios.get(process.env.APIPATH);
 
     const responseMessage = name
         ? "Hello, " + name.data.results[0].name.first + ". This HTTP triggered function executed successfully."
